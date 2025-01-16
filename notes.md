@@ -7,8 +7,8 @@ As part of `Deliverable ⓵ Development deployment: JWT Pizza`, start up the app
 | User activity                                       | Frontend component | Backend endpoints | Database SQL |
 | --------------------------------------------------- | ------------------ | ----------------- | ------------ |
 | View home page                                      | home.jsx           | none              | none         |
-| Register new user<br/>(t@jwt.com, pw: test)         | register.jsx       | [PUT] /api/auth   | INSERT INTO user (name, email, password) VALUES (?, ?, ?) /n INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?) |
-| Login new user<br/>(t@jwt.com, pw: test)            | login.jsx          | [PUT] /api/auth   | SELECT * FROM user WHERE email=? \n SELECT * FROM userRole WHERE userId=? \n INSERT INTO auth (token, userId) VALUES (?, ?) |
+| Register new user<br/>(t@jwt.com, pw: test)         | register.jsx       | [PUT] /api/auth   | INSERT INTO user (name, email, password) VALUES (?, ?, ?) \ INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?) |
+| Login new user<br/>(t@jwt.com, pw: test)            | login.jsx          | [PUT] /api/auth   | SELECT * FROM user WHERE email=? \ SELECT * FROM userRole WHERE userId=? \ INSERT INTO auth (token, userId) VALUES (?, ?) |
 | Order pizza                                         | menu.jsx           |                   |              |
 | Verify pizza                                        |                    |                   |              |
 | View profile page                                   |                    | none              | none         |
@@ -22,5 +22,5 @@ As part of `Deliverable ⓵ Development deployment: JWT Pizza`, start up the app
 | Close a store                                       |                    |                   | DELETE FROM store WHERE franchiseId=? AND id=?             |
 | Login as admin<br/>(a@jwt.com, pw: admin)           |                    |                   |              |
 | View Admin page                                     |                    |                   |              |
-| Create a franchise for t@jwt.com                    |                    |                   | SELECT id, name FROM user WHERE email=? \n INSERT INTO franchise (name) VALUES (?) \n INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?)             |
-| Close the franchise for t@jwt.com                   |                    |                   | DELETE FROM store WHERE franchiseId=? \n DELETE FROM userRole WHERE objectId=? \n DELETE FROM franchise WHERE id=?             |
+| Create a franchise for t@jwt.com                    |                    |                   | SELECT id, name FROM user WHERE email=? \ INSERT INTO franchise (name) VALUES (?) \ INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?)             |
+| Close the franchise for t@jwt.com                   |                    |                   | DELETE FROM store WHERE franchiseId=? \ DELETE FROM userRole WHERE objectId=? \ DELETE FROM franchise WHERE id=?             |
