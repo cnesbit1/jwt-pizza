@@ -7,7 +7,7 @@ test("register user", async ({ page }) => {
         /Bearer tttttt/
       );
       await route.fulfill({ json: { message: "logout successful" } });
-    } else {
+    } else if (route.request().method() === "POST") {
       const registerReq = {
         name: "pizza diner",
         email: "d@jwt.com",
@@ -54,4 +54,5 @@ test("register user", async ({ page }) => {
   await page.getByRole("button", { name: "Register" }).click();
 
   await page.getByRole("link", { name: "Logout" }).click();
+  await expect(page.getByRole('heading')).toContainText('The web\'s best pizza');
 });
