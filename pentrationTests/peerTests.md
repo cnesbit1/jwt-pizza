@@ -11,7 +11,7 @@
 ### Peer 1 (Connor Nesbit) Self Attacks
 
 **Date:** April 9, 2025  
-**Target:** https://pizza.cjnhost.click  
+**Target:** https://pizza-service.cjnhost.click  
 **Classification:** Injection  
 **Severity:** 2  
 **Description:** SQL injection changed admin login information. Hacker now has access to all information.  
@@ -20,6 +20,17 @@
 - ![Attack screenshot](images/cjndata.png)
 - ![Attack screenshot](images/hackedcjnlogin.png)
 - ![Attack screenshot](images/cjncurlhack.png)
+
+**Corrections:** Fix the `updateUser` database function to prevent SQL injection.
+
+**Date:** April 9, 2025  
+**Target:** https://pizza-service.cjnhost.click  
+**Classification:** Injection  
+**Severity:** 1  
+**Description:** I wasn't able to get a working script that would modify every single password but the potential is there.  
+**Images:**
+
+- ![Attack screenshot](images/attemptMassPasswordChange.png)
 
 **Corrections:** Fix the `updateUser` database function to prevent SQL injection.
 
@@ -102,9 +113,9 @@
 
 **Date:** April 15, 2025  
 **Target:** https://www.pizza.meganhuff.click
-**Classification:**   
-**Severity:**   
-**Description:** 
+**Classification:**  
+**Severity:**  
+**Description:**
 **Images:**
 
 ---
@@ -125,6 +136,17 @@
 - ![Attack screenshot](images/curl_command_admin_hack.png)
 
 **Corrections:** Fix the `updateUser` database function to prevent SQL injection.
+
+**Date:** April 15, 2025  
+**Target:** https://pizza.cayson5.click  
+**Classification:** Security Misconfiguration  
+**Severity:** 5  
+**Description:** The admin and a@jwt.com information was never changed or modified to prevent access from bad actors that may know those security details.
+**Images:**
+
+- ![Attack screenshot](images/initialAdmin.png)
+
+**Corrections:** Change the default configuration of database and reload data
 
 ### Peer 2 (Cayson) Attack on Peer 3 (Megan)
 
@@ -176,8 +198,8 @@
 
 **Date:** April 15, 2025  
 **Target:** https://pizza.cjnhost.click/admin-dasboard/create-franchise
-**Classification:** Broken Access Control / Security Misconfiguration 
-**Severity:**  1 / 5
+**Classification:** Broken Access Control / Security Misconfiguration
+**Severity:** 1 / 5
 **Description:** It is possible to access the create franchise screen within the app without being logged in or being logged in as a user. You cannot create a franchise, but if you are logged in as a non-administrative user, it spits an error with a stack trace.
 **Images:**
 
@@ -189,9 +211,10 @@
 
 ## Combined Summary of Learnings
 
-**Connor**: During my self and peer attacks, I discovered how SQL injection could be used to alter admin credentials and gain unauthorized access. This helped me understand the critical importance of using parameterized queries and securing all user inputs.
+**Connor**: During my self and peer attacks, I discovered how SQL injection could be used to alter admin credentials and gain unauthorized access. This helped me understand the critical importance of using parameterized queries and securing all user inputs. I also modified my own database to get rid of security details that have been exposed to the public.
 
-**Cayson**: 
+**Cayson**:
+
 - The most common vulnerability found across both implementations was improper CORS configuration, which could enable cross-site request forgery attacks. Web applications should never reflect arbitrary origins in CORS headers or set Access-Control-Allow-Credentials: true for untrusted origins.
 
 - Both implementations had issues with input validation, allowing incorrect data types to be processed. This demonstrates the importance of implementing proper type checking and validation for all user inputs before processing them.
