@@ -141,7 +141,7 @@
 **Target:** https://pizza.cayson5.click  
 **Classification:** Security Misconfiguration  
 **Severity:** 5  
-**Description:** The admin and a@jwt.com information was never changed or modified to prevent access from bad actors that may know those security details.
+**Description:** The admin and a@jwt.com information was never changed or modified to prevent access from bad actors that may know those security details.  
 **Images:**
 
 - ![Attack screenshot](images/initialAdmin.png)
